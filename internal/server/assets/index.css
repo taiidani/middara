@@ -1,0 +1,44 @@
+:root {
+    --text-color: #eee;
+    --default-bg-color: rgba(10, 21, 45);
+    --bs-tertiary-bg-rgb: 18, 22, 28;
+    --bs-secondary-color: #eee;
+    --bs-bg-opacity: 100%;
+    --progress-bg-color: hsl(222, 21%, 12%);
+    --progress-bg-filled-color: hsl(223, 18%, 23%);
+    --btn-primary-background: green;
+    --btn-primary-border: green;
+}
+
+body {
+    background-image: url("/assets/background_remi.png");
+    background-blend-mode: color-burn;
+    background-color: rgba(47, 79, 79, 0.644);
+    background-repeat: repeat;
+    background-position: center center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button a:hover {
+    text-decoration: none;
+}
+
+body>header,
+body>footer {
+    background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity));
+    color: var(--bs-body-color);
+}
+
+#main {
+    min-height: 20rem;
+}

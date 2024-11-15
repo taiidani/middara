@@ -1,0 +1,19 @@
+{{ template "header.gohtml" . }}
+
+<h1>Middara Helper</h1>
+
+<section>
+    <article>
+        <p>If you are joining an existing game, you will need to know the exact URL to that game. Otherwise, start a new game by clicking below.</p>
+
+        <div class="card text-bg-dark mb-3">
+            <div class="card-body">
+                <form action="/game" method="POST">
+                    <button type="submit">New Game</button>
+                </form>
+            </div>
+        </div>
+    </article>
+</section>
+
+{{ template "footer.gohtml" . }}
