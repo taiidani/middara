@@ -1,159 +1,164 @@
 {{ template "header.gohtml" . }}
 
 <div id="app" data-id="{{.Game.ID}}">
-    <form action="/game/{{.Game.ID}}" method="POST">
-        <section class="grid">
-            <div>
-                <article>
-                    <header>
-                        <h3>Flags</h3>
-                    </header>
+    <section>
+        <nav role="group">
+            <button>Adventure Sheet</button>
+        </nav>
+    </section>
 
-                    <div class="grid">
-                        <div>
-                            <label><input type="checkbox" name="flag-bouncer-bounced" {{ if .Game.FlagBouncerBounced}}checked{{ end}} />Bouncer Bounced</label>
-                            <label><input type="checkbox" name="flag-culprit-identified" {{ if .Game.FlagCulpritIdentified}}checked{{ end}} />Culprit Identified</label>
-                            <label><input type="checkbox" name="flag-slipping" {{ if .Game.FlagSlipping}}checked{{ end}} />Slipping</label>
-                            <label><input type="checkbox" name="flag-contract-terminated" {{ if .Game.FlagContractTerminated}}checked{{ end}} />Contract Terminated</label>
-                            <label><input type="checkbox" name="flag-prized-posession" {{ if .Game.FlagPrizedPosession}}checked{{ end}} />Prized Posession</label>
-                            <label><input type="checkbox" name="flag-leg-wound" {{ if .Game.FlagLegWound}}checked{{ end}} />Leg Wound</label>
-                            <label><input type="checkbox" name="flag-soul-judgement" {{ if .Game.FlagSoulJudgement}}checked{{ end}} />Soul Judgement</label>
-                            <label><input type="checkbox" name="flag-familial-dispute" {{ if .Game.FlagFamilialDispute}}checked{{ end}} />Familial Dispute</label>
-                            <label><input type="checkbox" name="flag-experienced-guide" {{ if .Game.FlagExperiencedGuide}}checked{{ end}} />Experienced Guide</label>
-                            <label><input type="checkbox" name="flag-a-lonely-survivor" {{ if .Game.FlagALonelySurvivor}}checked{{ end}} />A Lonely Survivor</label>
-                            <label><input type="checkbox" name="flag-marked" {{ if .Game.FlagMarked}}checked{{ end}} />Marked</label>
-                            <label><input type="checkbox" name="flag-happy-fugitives" {{ if .Game.FlagHappyFugitives}}checked{{ end}} />Happy Fugitives</label>
-                            <label><input type="checkbox" name="flag-heartbroken-exile" {{ if .Game.FlagHeartbrokenExile}}checked{{ end}} />Heartbroken Exile</label>
-                            <label><input type="checkbox" name="flag-judgement-of-judas" {{ if .Game.FlagJudgementOfJudas}}checked{{ end}} />Judgement of Judas</label>
-                            <label><input type="checkbox" name="flag-the-patel-daughter" {{ if .Game.FlagThePatelDaughter}}checked{{ end}} />The Patel Daughter</label>
-                            <label><input type="checkbox" name="flag-elias-gratitude" {{ if .Game.FlagEliasGratitude}}checked{{ end}} />Elias' Gratitude</label>
-                            <label><input type="checkbox" name="flag-an-end-to-madness" {{ if .Game.FlagAnEndToMadness}}checked{{ end}} />An End to Madness</label>
-                            <label><input type="checkbox" name="flag-new-ambitions" {{ if .Game.FlagNewAmbitions}}checked{{ end}} />New Ambitions</label>
-                            <label><input type="checkbox" name="flag-avoiding-collapse" {{ if .Game.FlagAvoidingCollapse}}checked{{ end}} />Avoiding Collapse</label>
-                            <label><input type="checkbox" name="flag-a-husbands-duty" {{ if .Game.FlagAHusbandsDuty}}checked{{ end}} />A Husband's Duty</label>
-                            <label><input type="checkbox" name="flag-a-sons-love" {{ if .Game.FlagASonsLove}}checked{{ end}} />A Son's Love</label>
-                            <label><input type="checkbox" name="flag-key-defeat" {{ if .Game.FlagKeyDefeat}}checked{{ end}} />Key Defeat</label>
+    <section>
+        <form action="/game/{{.Game.ID}}" method="POST">
+            <div class="grid">
+                <div>
+                    <article>
+                        <header>
+                            <h3>Flags</h3>
+                        </header>
+
+                        <div class="grid">
+                            <div>
+                                <label><input type="checkbox" name="flag-bouncer-bounced" {{ if .Game.FlagBouncerBounced}}checked{{ end}} />Bouncer Bounced</label>
+                                <label><input type="checkbox" name="flag-culprit-identified" {{ if .Game.FlagCulpritIdentified}}checked{{ end}} />Culprit Identified</label>
+                                <label><input type="checkbox" name="flag-slipping" {{ if .Game.FlagSlipping}}checked{{ end}} />Slipping</label>
+                                <label><input type="checkbox" name="flag-contract-terminated" {{ if .Game.FlagContractTerminated}}checked{{ end}} />Contract Terminated</label>
+                                <label><input type="checkbox" name="flag-prized-posession" {{ if .Game.FlagPrizedPosession}}checked{{ end}} />Prized Posession</label>
+                                <label><input type="checkbox" name="flag-leg-wound" {{ if .Game.FlagLegWound}}checked{{ end}} />Leg Wound</label>
+                                <label><input type="checkbox" name="flag-soul-judgement" {{ if .Game.FlagSoulJudgement}}checked{{ end}} />Soul Judgement</label>
+                                <label><input type="checkbox" name="flag-familial-dispute" {{ if .Game.FlagFamilialDispute}}checked{{ end}} />Familial Dispute</label>
+                                <label><input type="checkbox" name="flag-experienced-guide" {{ if .Game.FlagExperiencedGuide}}checked{{ end}} />Experienced Guide</label>
+                                <label><input type="checkbox" name="flag-a-lonely-survivor" {{ if .Game.FlagALonelySurvivor}}checked{{ end}} />A Lonely Survivor</label>
+                                <label><input type="checkbox" name="flag-marked" {{ if .Game.FlagMarked}}checked{{ end}} />Marked</label>
+                                <label><input type="checkbox" name="flag-happy-fugitives" {{ if .Game.FlagHappyFugitives}}checked{{ end}} />Happy Fugitives</label>
+                                <label><input type="checkbox" name="flag-heartbroken-exile" {{ if .Game.FlagHeartbrokenExile}}checked{{ end}} />Heartbroken Exile</label>
+                                <label><input type="checkbox" name="flag-judgement-of-judas" {{ if .Game.FlagJudgementOfJudas}}checked{{ end}} />Judgement of Judas</label>
+                                <label><input type="checkbox" name="flag-the-patel-daughter" {{ if .Game.FlagThePatelDaughter}}checked{{ end}} />The Patel Daughter</label>
+                                <label><input type="checkbox" name="flag-elias-gratitude" {{ if .Game.FlagEliasGratitude}}checked{{ end}} />Elias' Gratitude</label>
+                                <label><input type="checkbox" name="flag-an-end-to-madness" {{ if .Game.FlagAnEndToMadness}}checked{{ end}} />An End to Madness</label>
+                                <label><input type="checkbox" name="flag-new-ambitions" {{ if .Game.FlagNewAmbitions}}checked{{ end}} />New Ambitions</label>
+                                <label><input type="checkbox" name="flag-avoiding-collapse" {{ if .Game.FlagAvoidingCollapse}}checked{{ end}} />Avoiding Collapse</label>
+                                <label><input type="checkbox" name="flag-a-husbands-duty" {{ if .Game.FlagAHusbandsDuty}}checked{{ end}} />A Husband's Duty</label>
+                                <label><input type="checkbox" name="flag-a-sons-love" {{ if .Game.FlagASonsLove}}checked{{ end}} />A Son's Love</label>
+                                <label><input type="checkbox" name="flag-key-defeat" {{ if .Game.FlagKeyDefeat}}checked{{ end}} />Key Defeat</label>
+                            </div>
+
+                            <div>
+                                <label><input type="checkbox" name="flag-rested" {{ if .Game.FlagRested }}checked{{ end }} />Rested</label>
+                                <label><input type="checkbox" name="flag-book-of-gehenna" {{ if .Game.FlagBookOfGehenna }}checked{{ end }} />Book of Gehenna</label>
+                                <label><input type="checkbox" name="flag-fallen-friend" {{ if .Game.FlagFallenFriend }}checked{{ end }} />Fallen Friend</label>
+                                <label><input type="checkbox" name="flag-last-of-her-coterie" {{ if .Game.FlagLastOfHerCoterie }}checked{{ end }} />Last of Her Coterie</label>
+                                <label><input type="checkbox" name="flag-seeds-of-her-people" {{ if .Game.FlagSeedsOfHerPeople }}checked{{ end }} />Seeds of Her People</label>
+                                <label><input type="checkbox" name="flag-grievous-wounds" {{ if .Game.FlagGrievousWounds }}checked{{ end }} />Grievous Wounds</label>
+                                <label><input type="checkbox" name="flag-the-only-way" {{ if .Game.FlagTheOnlyWay }}checked{{ end }} />The Only Way</label>
+                                <label><input type="checkbox" name="flag-irreconcilable-differences" {{ if .Game.FlagIrreconcilableDifferences }}checked{{ end }} />Irreconcilable Differences</label>
+                                <label><input type="checkbox" name="flag-reluctant-partnership" {{ if .Game.FlagReluctantPartnership }}checked{{ end }} />Reluctant Partnership</label>
+                                <label><input type="checkbox" name="flag-massacred" {{ if .Game.FlagMassacred }}checked{{ end }} />Massacred</label>
+                                <label><input type="checkbox" name="flag-coffin-buddy" {{ if .Game.FlagCoffinBuddy }}checked{{ end }} />Coffin Buddy</label>
+                                <label><input type="checkbox" name="flag-capable-enough" {{ if .Game.FlagCapableEnough }}checked{{ end }} />Capable Enough</label>
+                                <label><input type="checkbox" name="flag-good-riddance" {{ if .Game.FlagGoodRiddance }}checked{{ end }} />Good Riddance</label>
+                                <label><input type="checkbox" name="flag-time-is-of-the-essence" {{ if .Game.FlagTimeIsOfTheEssence }}checked{{ end }} />Time is of the Essence</label>
+                                <label><input type="checkbox" name="flag-all-we-can-get" {{ if .Game.FlagAllWeCanGet }}checked{{ end }} />All we can get</label>
+                                <label><input type="checkbox" name="flag-butchered" {{ if .Game.FlagButchered }}checked{{ end }} />Butchered</label>
+                                <label><input type="checkbox" name="flag-sacrifice" {{ if .Game.FlagSacrifice }}checked{{ end }} />Sacrifice</label>
+                                <label><input type="checkbox" name="flag-a-helping-hand" {{ if .Game.FlagAHelpingHand }}checked{{ end }} />A Helping Hand</label>
+                                <label><input type="checkbox" name="flag-a-new-owner" {{ if .Game.FlagANewOwner }}checked{{ end }} />A New Owner</label>
+                                <label><input type="checkbox" name="flag-a-greater-cause" {{ if .Game.FlagAGreaterCause }}checked{{ end }} />A Greater Cause</label>
+                                <label><input type="checkbox" name="flag-imprisoned-anointed" {{ if .Game.FlagImprisonedAnointed }}checked{{ end }} />Imprisoned Anointed</label>
+                            </div>
+                    </article>
+
+                    <article>
+                        <header>
+                            <h3>Achievements</h3>
+                        </header>
+
+                        <div class="grid">
+                            <div>
+                                <label><input type="checkbox" name="achievement-not-quite-unkillable" {{ if .Game.AchievementNotQuiteUnkillable }}checked{{ end}} />Not Quite Unkillable</label>
+                                <label><input type="checkbox" name="achievement-death-from-above" {{ if .Game.AchievementDeathFromAbove }}checked{{ end}} />Death from Above</label>
+                                <label><input type="checkbox" name="achievement-proof-of-prowess" {{ if .Game.AchievementProofOfProwess }}checked{{ end}} />Proof of Prowess</label>
+                                <label><input type="checkbox" name="achievement-like-a-blur" {{ if .Game.AchievementLikeABlur }}checked{{ end}} />Like a Blur</label>
+                                <label><input type="checkbox" name="achievement-supreme-mobility" {{ if .Game.AchievementSupremeMobility }}checked{{ end}} />Supreme Mobility</label>
+                                <label><input type="checkbox" name="achievement-sickle-slaughter" {{ if .Game.AchievementSickleSlaughter }}checked{{ end}} />Sickle Slaughter</label>
+                                <label><input type="checkbox" name="achievement-raining-loot" {{ if .Game.AchievementRainingLoot }}checked{{ end}} />Raining Loot</label>
+                            </div>
+
+                            <div>
+                                <label><input type="checkbox" name="achievement-healthy-wealthy-and-wise" {{ if .Game.AchievementHealthyWealthyAndWise }}checked{{ end}} />Healthy, Wealthy, and Wise</label>
+                                <label><input type="checkbox" name="achievement-success-breeds-success" {{ if .Game.AchievementSuccessBreedsSuccess }}checked{{ end}} />Success Breeds Success</label>
+                                <label><input type="checkbox" name="achievement-zap-a-gap" {{ if .Game.AchievementZapAGap }}checked{{ end}} />Zap a Gap</label>
+                                <label><input type="checkbox" name="achievement-poppet-be-gone" {{ if .Game.AchievementPoppetBeGone }}checked{{ end}} />Poppet be Gone</label>
+                                <label><input type="checkbox" name="achievement-tough-wurm" {{ if .Game.AchievementToughWurm }}checked{{ end}} />Tough Wurm</label>
+                                <label><input type="checkbox" name="achievement-tentacle-collector" {{ if .Game.AchievementTentacleCollector }}checked{{ end}} />Tentacle Collector</label>
+                                <label><input type="checkbox" name="achievement-tortured-mortal" {{ if .Game.AchievementTorturedMortal }}checked{{ end}} />Tortured Mortal</label>
+                            </div>
+                    </article>
+
+                    <article>
+                        <header>
+                            <h3>Unlocked Item Upgrades</h3>
+                        </header>
+
+                        <div class="grid">
+                            <div>
+                                <label><input type="checkbox" name="upgrade-masterwork" {{if .Game.UpgradeMasterwork }}checked{{ end }}/>Master Work</label>
+                                <label><input type="checkbox" name="upgrade-imbued" {{if .Game.UpgradeImbued }}checked{{ end }}/>Imbued</label>
+                                <label><input type="checkbox" name="upgrade-devastating" {{if .Game.UpgradeDevastating }}checked{{ end }}/>Devastating</label>
+                                <label><input type="checkbox" name="upgrade-otherworldly" {{if .Game.UpgradeOtherworldly }}checked{{ end }}/>Otherworldly</label>
+                                <label><input type="checkbox" name="upgrade-reinforced" {{if .Game.UpgradeReinforced }}checked{{ end }}/>Reinforced</label>
+                                <label><input type="checkbox" name="upgrade-bulky" {{if .Game.UpgradeBulky }}checked{{ end }}/>Bulky</label>
+                                <label><input type="checkbox" name="upgrade-elegant" {{if .Game.UpgradeElegant }}checked{{ end }}/>Elegant</label>
+                                <label><input type="checkbox" name="upgrade-refined" {{if .Game.UpgradeRefined }}checked{{ end }}/>Refined</label>
+                            </div>
+
+                            <div>
+                                <label><input type="checkbox" name="upgrade-etherium" {{if .Game.UpgradeEtherium }}checked{{ end }}/>Etherium</label>
+                                <label><input type="checkbox" name="upgrade-sentient" {{if .Game.UpgradeSentient }}checked{{ end }}/>Sentient</label>
+                                <label><input type="checkbox" name="upgrade-scrying" {{if .Game.UpgradeScrying }}checked{{ end }}/>Scrying</label>
+                                <label><input type="checkbox" name="upgrade-dark" {{if .Game.UpgradeDark }}checked{{ end }}/>Dark</label>
+                                <label><input type="checkbox" name="upgrade-glowing" {{if .Game.UpgradeGlowing }}checked{{ end }}/>Glowing</label>
+                                <label><input type="checkbox" name="upgrade-shimmering" {{if .Game.UpgradeShimmering }}checked{{ end }}/>Shimmering</label>
+                                <label><input type="checkbox" name="upgrade-enchanted" {{if .Game.UpgradeEnchanted }}checked{{ end }}/>Enchanted</label>
+                            </div>
+                    </article>
+                </div>
+
+                <div>
+                    <article>
+                        <fieldset role="group">
+                            <input type="number" name="gold" placeholder="Gold" value="{{ .Game.Gold }}" />
+                            <input type="number" name="page" placeholder="Page #" value="{{ .Game.Page }}" />
+                        </fieldset>
+                    </article>
+
+                    {{ range $i, $el := .Game.Players }}
+                    <article>
+                        {{ if .Name }}
+                        <header>
+                            <h3>{{ .Name }}</h3>
+                        </header>
+                        {{ end -}}
+                        <fieldset role="group">
+                            <input type="text" name="name-{{$i}}" placeholder="Name" value="{{ .Name }}" />
+                            <input type="number" name="xp-{{$i}}" placeholder="XP" value="{{ .XP }}" />
+                        </fieldset>
+
+                        <div class="grid">
+                            <label><input type="checkbox" name="injured-{{$i}}" {{ if .Injured }}checked{{ end }} />Injured</label>
+                            <label><input type="checkbox" name="unselectable-{{$i}}" {{ if .Unselectable }}checked{{ end }} />Unselectable</label>
+                            <input type="number" name="damage-{{$i}}" placeholder="DMG" value="{{ .Damage }}" />
                         </div>
-
-                        <div>
-                            <label><input type="checkbox" name="flag-rested" {{ if .Game.FlagRested }}checked{{ end }} />Rested</label>
-                            <label><input type="checkbox" name="flag-book-of-gehenna" {{ if .Game.FlagBookOfGehenna }}checked{{ end }} />Book of Gehenna</label>
-                            <label><input type="checkbox" name="flag-fallen-friend" {{ if .Game.FlagFallenFriend }}checked{{ end }} />Fallen Friend</label>
-                            <label><input type="checkbox" name="flag-last-of-her-coterie" {{ if .Game.FlagLastOfHerCoterie }}checked{{ end }} />Last of Her Coterie</label>
-                            <label><input type="checkbox" name="flag-seeds-of-her-people" {{ if .Game.FlagSeedsOfHerPeople }}checked{{ end }} />Seeds of Her People</label>
-                            <label><input type="checkbox" name="flag-grievous-wounds" {{ if .Game.FlagGrievousWounds }}checked{{ end }} />Grievous Wounds</label>
-                            <label><input type="checkbox" name="flag-the-only-way" {{ if .Game.FlagTheOnlyWay }}checked{{ end }} />The Only Way</label>
-                            <label><input type="checkbox" name="flag-irreconcilable-differences" {{ if .Game.FlagIrreconcilableDifferences }}checked{{ end }} />Irreconcilable Differences</label>
-                            <label><input type="checkbox" name="flag-reluctant-partnership" {{ if .Game.FlagReluctantPartnership }}checked{{ end }} />Reluctant Partnership</label>
-                            <label><input type="checkbox" name="flag-massacred" {{ if .Game.FlagMassacred }}checked{{ end }} />Massacred</label>
-                            <label><input type="checkbox" name="flag-coffin-buddy" {{ if .Game.FlagCoffinBuddy }}checked{{ end }} />Coffin Buddy</label>
-                            <label><input type="checkbox" name="flag-capable-enough" {{ if .Game.FlagCapableEnough }}checked{{ end }} />Capable Enough</label>
-                            <label><input type="checkbox" name="flag-good-riddance" {{ if .Game.FlagGoodRiddance }}checked{{ end }} />Good Riddance</label>
-                            <label><input type="checkbox" name="flag-time-is-of-the-essence" {{ if .Game.FlagTimeIsOfTheEssence }}checked{{ end }} />Time is of the Essence</label>
-                            <label><input type="checkbox" name="flag-all-we-can-get" {{ if .Game.FlagAllWeCanGet }}checked{{ end }} />All we can get</label>
-                            <label><input type="checkbox" name="flag-butchered" {{ if .Game.FlagButchered }}checked{{ end }} />Butchered</label>
-                            <label><input type="checkbox" name="flag-sacrifice" {{ if .Game.FlagSacrifice }}checked{{ end }} />Sacrifice</label>
-                            <label><input type="checkbox" name="flag-a-helping-hand" {{ if .Game.FlagAHelpingHand }}checked{{ end }} />A Helping Hand</label>
-                            <label><input type="checkbox" name="flag-a-new-owner" {{ if .Game.FlagANewOwner }}checked{{ end }} />A New Owner</label>
-                            <label><input type="checkbox" name="flag-a-greater-cause" {{ if .Game.FlagAGreaterCause }}checked{{ end }} />A Greater Cause</label>
-                            <label><input type="checkbox" name="flag-imprisoned-anointed" {{ if .Game.FlagImprisonedAnointed }}checked{{ end }} />Imprisoned Anointed</label>
-                        </div>
-                </article>
-
-                <article>
-                    <header>
-                        <h3>Achievements</h3>
-                    </header>
-
-                    <div class="grid">
-                        <div>
-                            <label><input type="checkbox" name="achievement-not-quite-unkillable" {{ if .Game.AchievementNotQuiteUnkillable }}checked{{ end}} />Not Quite Unkillable</label>
-                            <label><input type="checkbox" name="achievement-death-from-above" {{ if .Game.AchievementDeathFromAbove }}checked{{ end}} />Death from Above</label>
-                            <label><input type="checkbox" name="achievement-proof-of-prowess" {{ if .Game.AchievementProofOfProwess }}checked{{ end}} />Proof of Prowess</label>
-                            <label><input type="checkbox" name="achievement-like-a-blur" {{ if .Game.AchievementLikeABlur }}checked{{ end}} />Like a Blur</label>
-                            <label><input type="checkbox" name="achievement-supreme-mobility" {{ if .Game.AchievementSupremeMobility }}checked{{ end}} />Supreme Mobility</label>
-                            <label><input type="checkbox" name="achievement-sickle-slaughter" {{ if .Game.AchievementSickleSlaughter }}checked{{ end}} />Sickle Slaughter</label>
-                            <label><input type="checkbox" name="achievement-raining-loot" {{ if .Game.AchievementRainingLoot }}checked{{ end}} />Raining Loot</label>
-                        </div>
-
-                        <div>
-                            <label><input type="checkbox" name="achievement-healthy-wealthy-and-wise" {{ if .Game.AchievementHealthyWealthyAndWise }}checked{{ end}} />Healthy, Wealthy, and Wise</label>
-                            <label><input type="checkbox" name="achievement-success-breeds-success" {{ if .Game.AchievementSuccessBreedsSuccess }}checked{{ end}} />Success Breeds Success</label>
-                            <label><input type="checkbox" name="achievement-zap-a-gap" {{ if .Game.AchievementZapAGap }}checked{{ end}} />Zap a Gap</label>
-                            <label><input type="checkbox" name="achievement-poppet-be-gone" {{ if .Game.AchievementPoppetBeGone }}checked{{ end}} />Poppet be Gone</label>
-                            <label><input type="checkbox" name="achievement-tough-wurm" {{ if .Game.AchievementToughWurm }}checked{{ end}} />Tough Wurm</label>
-                            <label><input type="checkbox" name="achievement-tentacle-collector" {{ if .Game.AchievementTentacleCollector }}checked{{ end}} />Tentacle Collector</label>
-                            <label><input type="checkbox" name="achievement-tortured-mortal" {{ if .Game.AchievementTorturedMortal }}checked{{ end}} />Tortured Mortal</label>
-                        </div>
-                </article>
-
-                <article>
-                    <header>
-                        <h3>Unlocked Item Upgrades</h3>
-                    </header>
-
-                    <div class="grid">
-                        <div>
-                            <label><input type="checkbox" name="upgrade-masterwork" {{if .Game.UpgradeMasterwork }}checked{{ end }}/>Master Work</label>
-                            <label><input type="checkbox" name="upgrade-imbued" {{if .Game.UpgradeImbued }}checked{{ end }}/>Imbued</label>
-                            <label><input type="checkbox" name="upgrade-devastating" {{if .Game.UpgradeDevastating }}checked{{ end }}/>Devastating</label>
-                            <label><input type="checkbox" name="upgrade-otherworldly" {{if .Game.UpgradeOtherworldly }}checked{{ end }}/>Otherworldly</label>
-                            <label><input type="checkbox" name="upgrade-reinforced" {{if .Game.UpgradeReinforced }}checked{{ end }}/>Reinforced</label>
-                            <label><input type="checkbox" name="upgrade-bulky" {{if .Game.UpgradeBulky }}checked{{ end }}/>Bulky</label>
-                            <label><input type="checkbox" name="upgrade-elegant" {{if .Game.UpgradeElegant }}checked{{ end }}/>Elegant</label>
-                            <label><input type="checkbox" name="upgrade-refined" {{if .Game.UpgradeRefined }}checked{{ end }}/>Refined</label>
-                        </div>
-
-                        <div>
-                            <label><input type="checkbox" name="upgrade-etherium" {{if .Game.UpgradeEtherium }}checked{{ end }}/>Etherium</label>
-                            <label><input type="checkbox" name="upgrade-sentient" {{if .Game.UpgradeSentient }}checked{{ end }}/>Sentient</label>
-                            <label><input type="checkbox" name="upgrade-scrying" {{if .Game.UpgradeScrying }}checked{{ end }}/>Scrying</label>
-                            <label><input type="checkbox" name="upgrade-dark" {{if .Game.UpgradeDark }}checked{{ end }}/>Dark</label>
-                            <label><input type="checkbox" name="upgrade-glowing" {{if .Game.UpgradeGlowing }}checked{{ end }}/>Glowing</label>
-                            <label><input type="checkbox" name="upgrade-shimmering" {{if .Game.UpgradeShimmering }}checked{{ end }}/>Shimmering</label>
-                            <label><input type="checkbox" name="upgrade-enchanted" {{if .Game.UpgradeEnchanted }}checked{{ end }}/>Enchanted</label>
-                        </div>
-                </article>
+                    </article>
+                    {{ end }}
+                </div>
             </div>
 
-            <div>
-                <article>
-                    <fieldset role="group">
-                        <input type="number" name="gold" placeholder="Gold" value="{{ .Game.Gold }}" />
-                        <input type="number" name="page" placeholder="Page #" value="{{ .Game.Page }}" />
-                    </fieldset>
-                </article>
-
-                {{ range $i, $el := .Game.Players }}
-                <article>
-                    {{ if .Name }}
-                    <header>
-                        <h3>{{ .Name }}</h3>
-                    </header>
-                    {{ end -}}
-                    <fieldset role="group">
-                        <input type="text" name="name-{{$i}}" placeholder="Name" value="{{ .Name }}" />
-                        <input type="number" name="xp-{{$i}}" placeholder="XP" value="{{ .XP }}" />
-                    </fieldset>
-
-                    <div class="grid">
-                        <label><input type="checkbox" name="injured-{{$i}}" {{ if .Injured }}checked{{ end }} />Injured</label>
-                        <label><input type="checkbox" name="unselectable-{{$i}}" {{ if .Unselectable }}checked{{ end }} />Unselectable</label>
-                        <input type="number" name="damage-{{$i}}" placeholder="DMG" value="{{ .Damage }}" />
-                    </div>
-                </article>
-                {{ end }}
-            </div>
-        </section>
-
-        <section>
             <article>
                 <textarea name="notes" rows=3 placeholder="Notes">{{ .Game.Notes }}</textarea>
                 <button type="submit">Save</button>
             </article>
-        </section>
-
-    </form>
+        </form>
+    </section>
 </div>
 
 {{ template "footer.gohtml" . }}
