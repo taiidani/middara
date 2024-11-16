@@ -12,9 +12,9 @@
 
 body {
     background-image: url("/assets/background_remi.png");
-    background-size: 0.2rem;
+    background-size: 0.1rem;
     /* background-blend-mode: color-burn; */
-    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.625);
     background-repeat: repeat;
     background-position: center center;
     color: var(--text-color);
@@ -37,12 +37,28 @@ button a:hover {
 
 body>header,
 body>footer {
-    background-color: black;
     color: var(--bs-body-color);
+}
+
+body>header {
+    background-image: url("/assets/background.jpg");
+    background-size: cover;
+    background-position: 0 -7rem;
+}
+
+body>footer {
+    background-image: url("/assets/background2.png");
+    background-size: cover;
+    background-position: 0 -7rem;
 }
 
 header nav {
     font-size: 1.5rem;
+}
+
+footer nav li {
+    background-color: black;
+    border-radius: 1rem;
 }
 
 nav #logo {
