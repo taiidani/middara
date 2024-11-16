@@ -4,11 +4,8 @@ import (
 	"net/http"
 )
 
-type indexBag struct {
-}
-
 func (s *Server) indexHandler(resp http.ResponseWriter, req *http.Request) {
-	bag := indexBag{}
+	bag := gameBag{}
 
 	template := "index.gohtml"
 	renderHtml(resp, http.StatusOK, template, bag)
