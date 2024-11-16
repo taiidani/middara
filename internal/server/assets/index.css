@@ -12,12 +12,14 @@
 
 body {
     background-image: url("/assets/background_remi.png");
-    background-blend-mode: color-burn;
-    background-color: rgba(47, 79, 79, 0.644);
+    background-size: 0.2rem;
+    /* background-blend-mode: color-burn; */
+    background-color: aliceblue;
     background-repeat: repeat;
     background-position: center center;
     color: var(--text-color);
     font-size: 0.9rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 a {
@@ -35,8 +37,16 @@ button a:hover {
 
 body>header,
 body>footer {
-    background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity));
+    background-color: black;
     color: var(--bs-body-color);
+}
+
+header nav {
+    font-size: 1.5rem;
+}
+
+nav #logo {
+    max-height: 3rem;
 }
 
 #main {

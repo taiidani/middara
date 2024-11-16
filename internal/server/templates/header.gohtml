@@ -19,4 +19,16 @@
             Please enable it to continue.</strong>
     </noscript>
 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/"><img id="logo" src="/assets/logo.png" alt="Middara: Unintentional Malum" /></a></li>
+                {{ if .Game.ID }}
+                <li><a href="#act-1">Act 1</a></li>
+                {{ end}}
+            </ul>
+        </nav>
+
+    </header>
+
     <main id="main" class="container">

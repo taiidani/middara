@@ -1,13 +1,6 @@
 {{ template "header.gohtml" . }}
 
 <div id="app" data-id="{{.Game.ID}}">
-    <section>
-        <header>
-            <h1>Middara</h1>
-            <h2>Unintentional Maluma, Act 1</h2>
-        </header>
-    </section>
-
     <form action="/game/{{.Game.ID}}" method="POST">
         <section class="grid">
             <div>
@@ -133,6 +126,11 @@
 
                 {{ range $i, $el := .Game.Players }}
                 <article>
+                    {{ if .Name }}
+                    <header>
+                        <h3>{{ .Name }}</h3>
+                    </header>
+                    {{ end -}}
                     <fieldset role="group">
                         <input type="text" name="name-{{$i}}" placeholder="Name" value="{{ .Name }}" />
                         <input type="number" name="xp-{{$i}}" placeholder="XP" value="{{ .XP }}" />
