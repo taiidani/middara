@@ -100,6 +100,23 @@ type Player struct {
 	Unselectable bool   `json:"unselectable"`
 }
 
+const (
+	// maxPlayerCount is the maximum number of players on the Adventure Sheet.
+	maxPlayerCount = 6
+
+	// gameCachePrefix is the namespace that all game data is stored under in the cache.
+	gameCachePrefix = "game:"
+)
+
+var (
+	// newGameExpiration is the amount of time a game can be brand new (never saved) before it is cleaned up.
+	newGameExpiration = time.Hour * 24 * 7
+
+	// gameExpiration is the amount of time a game can be idle before it is cleaned up.
+	// Keep those Middara sessions going!
+	gameExpiration = time.Hour * 24 * 365
+)
+
 func (s *Server) gameHandler(w http.ResponseWriter, r *http.Request) {
 	bag := gameBag{}
 
@@ -109,10 +126,9 @@ func (s *Server) gameHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cachePath := "game:" + id
+	cachePath := gameCachePrefix + id
 	err := s.cache.Get(r.Context(), cachePath, &bag.Game)
 	if err != nil {
-		// errorResponse(w, http.StatusNotFound, err)
 		http.Redirect(w, r, "/", http.StatusFound)
 		return
 	}
@@ -128,7 +144,7 @@ func (s *Server) saveGameHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cachePath := "game:" + id
+	cachePath := gameCachePrefix + id
 	if found, _ := s.cache.Has(r.Context(), cachePath); !found {
 		errorResponse(w, http.StatusNotFound, errGameNotFound)
 		return
@@ -223,7 +239,7 @@ func (s *Server) saveGameHandler(w http.ResponseWriter, r *http.Request) {
 		})
 	}
 
-	err := s.cache.Set(r.Context(), cachePath, &game, time.Hour*24*90)
+	err := s.cache.Set(r.Context(), cachePath, &game, gameExpiration)
 	if err != nil {
 		errorResponse(w, http.StatusInternalServerError, err)
 		return
@@ -234,13 +250,13 @@ func (s *Server) saveGameHandler(w http.ResponseWriter, r *http.Request) {
 
 func (s *Server) newGameHandler(w http.ResponseWriter, r *http.Request) {
 	id := s.buildGameKey()
-	cachePath := "game:" + id
+	cachePath := gameCachePrefix + id
 	game := Game{
 		ID:      id,
-		Players: make([]Player, 6),
+		Players: make([]Player, maxPlayerCount),
 	}
 
-	err := s.cache.Set(r.Context(), cachePath, &game, time.Hour*24*90)
+	err := s.cache.Set(r.Context(), cachePath, &game, newGameExpiration)
 	if err != nil {
 		errorResponse(w, http.StatusInternalServerError, err)
 		return
