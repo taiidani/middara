@@ -68,6 +68,7 @@ nav #logo {
     max-height: 3rem;
 }
 
-#main {
-    min-height: 20rem;
+
+.hide {
+    display: none;
 }
