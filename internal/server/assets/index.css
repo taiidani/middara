@@ -72,3 +72,7 @@ nav #logo {
 .hide {
     display: none;
 }
+
+#reference dt {
+    font-weight: bold;
+}
