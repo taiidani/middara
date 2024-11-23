@@ -1,13 +1,15 @@
 {{ template "header.gohtml" . }}
 
 <div id="app" data-id="{{.Game.ID}}">
-    <nav role="group">
-        <button aria-current="true" data-target="adventure-sheet">Adventure Sheet</button>
-        <button class="outline" data-target="initiative-order">Initiative Order</button>
-        <button class="outline" data-target="reference">Reference</button>
-    </nav>
+    <div role="tablist">
+        <nav role="group">
+            <button role="tab" aria-controls="adventure-sheet">Adventure Sheet</button>
+            <button role="tab" aria-controls="initiative-order">Initiative Order</button>
+            <button role="tab" aria-controls="reference">Reference</button>
+        </nav>
+    </div>
 
-    <section id="adventure-sheet" class="tab">
+    <section id="adventure-sheet" role="tabpanel">
         <form action="/game/{{.Game.ID}}" method="POST">
             <div class="grid">
                 <div>
@@ -160,7 +162,7 @@
         </form>
     </section>
 
-    <section id="initiative-order" class="tab hide">
+    <section id="initiative-order" role="tabpanel">
         <article>
             <header>
                 <h1>Initiative Order</h1>
@@ -170,7 +172,7 @@
         </article>
     </section>
 
-    <section id="reference" class="tab hide">
+    <section id="reference" role="tabpanel">
         <article>
             <header>
                 <h1>Reference</h1>
