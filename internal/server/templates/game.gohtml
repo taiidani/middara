@@ -167,7 +167,7 @@
             <header>
                 <h1>Initiative Order</h1>
 
-                <strong>🚧 Feature In Progress 🚧</strong>
+                <p><strong>🚧 Feature In Progress 🚧</strong></p>
             </header>
         </article>
     </section>
@@ -177,65 +177,73 @@
             <header>
                 <h1>Reference</h1>
 
-                <strong>🚧 Feature In Progress 🚧</strong>
+                <p><strong>🚧 Feature In Progress 🚧</strong></p>
 
-                <h2>Tags</h2>
+                <div role="search">
+                    <input type="search" name="search" placeholder="Search" aria-label="Search" aria-controls="reference-content" />
+                </div>
 
-                <h3>Condition Tags</h3>
-                <dl>
-                    <dt>COMBO : (TAG)</dt>
-                    <dd>If another Item with (Tag) is also equipped, the listed Ability may be used.</dd>
+                <div id="reference-content">
+                    <h2>Tags</h2>
 
-                    <dt>✘DISCARD</dt>
-                    <dd>To use the following Ability, the player must discard this card.</dd>
+                    <h3>Condition Tags</h3>
+                    <dl>
+                        <dt>COMBO : (TAG)</dt>
+                        <dd>If another Item with (Tag) is also equipped, the listed Ability may be used.</dd>
 
-                    <dt>EXHAUST</dt>
-                    <dd>To use the following Ability, the player must Exhaust this card.</dd>
+                        <dt>✘DISCARD</dt>
+                        <dd>To use the following Ability, the player must discard this card.</dd>
 
-                    <dt>➤FLIP</dt>
-                    <dd>To use the following Ability, the player must Flip this card.</dd>
+                        <dt>EXHAUST</dt>
+                        <dd>To use the following Ability, the player must Exhaust this card.</dd>
 
-                    <dt>✤ PASSIVE</dt>
-                    <dd>The following Ability <strong>always</strong> grants its bonus or detriment to the figure, and is considered to be in effect at all times.</dd>
+                        <dt>➤FLIP</dt>
+                        <dd>To use the following Ability, the player must Flip this card.</dd>
 
-                    <dt>PER ENCOUNTER</dt>
-                    <dd>The following Ability may only be used once per Encounter. Place a <em>Used</em> token on the Ability to track when it is used.</dd>
+                        <dt>✤ PASSIVE</dt>
+                        <dd>The following Ability <strong>always</strong> grants its bonus or detriment to the figure, and is considered to be in effect at all times.</dd>
 
-                    <dt>✜ STATUS</dt>
-                    <dd>The following Ability or Effect occurs during the figure's Status Phase.</dd>
-                </dl>
+                        <dt>PER ENCOUNTER</dt>
+                        <dd>The following Ability may only be used once per Encounter. Place a <em>Used</em> token on the Ability to track when it is used.</dd>
 
-                <h3>Combatant Tags</h3>
-                    <dt>ALTERNATE, VARIATION, LOOT LEVEL (LVL)</dt>
-                    <dd>Combatants with this Tag have special rules on how and when they Spawn.</dd>
+                        <dt>✜ STATUS</dt>
+                        <dd>The following Ability or Effect occurs during the figure's Status Phase.</dd>
+                    </dl>
 
-                    <dt>AVARICE (X)</dt>
-                    <dd>These Combatants carry more wealth than your average Combatant. When an Adventurer Defeats a Combatant with the <strong>AVARICE</strong> Tag, they draw extra Combatant Loot Cards. The <strong>X</strong> represents the amount of extra cards drawn. For example, an <strong>AVARICE 1</strong> Combatant would give <strong>2</strong> Combatant Loot Cards instead of the normal <strong>1</strong>.</dd>
+                    <h3>Combatant Tags</h3>
 
-                    <dt>BOSS</dt>
-                    <dd>Combatants with this tag represent particularly strong opponents, players will fight these Combatants during special Encounters throughout both the Adventure Mode and Crawl Mode. <strong>BOSS</strong> Combatant Cards are located in <strong>Hidden Card</strong> decks and will be revealed whenever a Special Encounter Rule instructs players to reveal and use it. Some <strong>BOSS</strong> Combatants have special Monster Loot that players will Gain when the <strong>BOSS</strong> is Defeated. If this does occur, a Special Encounter Rule will instruct players on how to Gain this Monster Loot. Unless otherwise stated, Bosses drop Combatant Loot as normal. If you draw the Monster Loot Card, you must redraw.</dd>
+                    <dl>
+                        <dt>ALTERNATE, VARIATION, LOOT LEVEL (LVL)</dt>
+                        <dd>Combatants with this Tag have special rules on how and when they Spawn.</dd>
 
-                    <dt>CONDUIT</dt>
-                    <dd>Combatant Cards with this Tag are used by Adventurers using the <em>Conduit Summoning</em> Discipline. The Adventurer that used <em>Conduit Summoning</em> controls the Combatant Card with this Tag.</dd>
+                        <dt>AVARICE (X)</dt>
+                        <dd>These Combatants carry more wealth than your average Combatant. When an Adventurer Defeats a Combatant with the <strong>AVARICE</strong> Tag, they draw extra Combatant Loot Cards. The <strong>X</strong> represents the amount of extra cards drawn. For example, an <strong>AVARICE 1</strong> Combatant would give <strong>2</strong> Combatant Loot Cards instead of the normal <strong>1</strong>.</dd>
 
-                    <dt>FRAGILE</dt>
-                    <dd>When calculating the total <strong>HP</strong> of a <strong>LOYAL ESPER</strong> with this Tag, half the total <strong>HP</strong> calculated./dd>
+                        <dt>BOSS</dt>
+                        <dd>Combatants with this tag represent particularly strong opponents, players will fight these Combatants during special Encounters throughout both the Adventure Mode and Crawl Mode. <strong>BOSS</strong> Combatant Cards are located in <strong>Hidden Card</strong> decks and will be revealed whenever a Special Encounter Rule instructs players to reveal and use it. Some <strong>BOSS</strong> Combatants have special Monster Loot that players will Gain when the <strong>BOSS</strong> is Defeated. If this does occur, a Special Encounter Rule will instruct players on how to Gain this Monster Loot. Unless otherwise stated, Bosses drop Combatant Loot as normal. If you draw the Monster Loot Card, you must redraw.</dd>
 
-                    <dt>GILDED</dt>
-                    <dd>These Combatants always give their Monster Loot instead of a Combatant Loot Card.</dd>
+                        <dt>CONDUIT</dt>
+                        <dd>Combatant Cards with this Tag are used by Adventurers using the <em>Conduit Summoning</em> Discipline. The Adventurer that used <em>Conduit Summoning</em> controls the Combatant Card with this Tag.</dd>
 
-                    <dt>LOYAL ESPER</dt>
-                    <dd>Combatants with this Tag can be Spawned by Adventurers through the use of the <em>Summoning</em> Discipline. The Adventurer that Spawned a Combatant with this Tag controls the Combatant they Spawned.</dd>
+                        <dt>FRAGILE</dt>
+                        <dd>When calculating the total <strong>HP</strong> of a <strong>LOYAL ESPER</strong> with this Tag, half the total <strong>HP</strong> calculated./dd>
 
-                    <dt>OPPOSING ESPER</dt>
-                    <dd>Intelligent Combatants with this Tag can be Spawned by enemy summoners or might start on the board during setup.</dd>
+                        <dt>GILDED</dt>
+                        <dd>These Combatants always give their Monster Loot instead of a Combatant Loot Card.</dd>
 
-                    <dt>SWARM</dt>
-                    <dd>When a <strong>SWARM</strong> Combatant is Defeated, no Combatant Loot is drawn unless it was the last Combatant of its kind in a Group and its Initiative Card is removed. For example, if there is only <strong>1</strong> Cave Sickle left in a Group, and that Cave Sickle is Defeated, the corresponding <em>Cave Sickle</em> Group's Initiative Card is removed, and the Adventurers Gain a Combatant Loot Card.</dd>
+                        <dt>LOYAL ESPER</dt>
+                        <dd>Combatants with this Tag can be Spawned by Adventurers through the use of the <em>Summoning</em> Discipline. The Adventurer that Spawned a Combatant with this Tag controls the Combatant they Spawned.</dd>
 
-                    <dt>TRIVIAL</dt>
-                    <dd>When a <strong>TRIVIAL</strong> Combatant is Defeated, no Combatant Loot is drawn.</dd>
-                </dl>
+                        <dt>OPPOSING ESPER</dt>
+                        <dd>Intelligent Combatants with this Tag can be Spawned by enemy summoners or might start on the board during setup.</dd>
+
+                        <dt>SWARM</dt>
+                        <dd>When a <strong>SWARM</strong> Combatant is Defeated, no Combatant Loot is drawn unless it was the last Combatant of its kind in a Group and its Initiative Card is removed. For example, if there is only <strong>1</strong> Cave Sickle left in a Group, and that Cave Sickle is Defeated, the corresponding <em>Cave Sickle</em> Group's Initiative Card is removed, and the Adventurers Gain a Combatant Loot Card.</dd>
+
+                        <dt>TRIVIAL</dt>
+                        <dd>When a <strong>TRIVIAL</strong> Combatant is Defeated, no Combatant Loot is drawn.</dd>
+                    </dl>
+                </div>
 
                 <hr/>
 

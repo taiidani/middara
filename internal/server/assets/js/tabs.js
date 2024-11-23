@@ -45,22 +45,14 @@ function evtTabClick(evt) {
     let tabList = evt.target.closest("[role=tablist]");
     let btns = tabList.querySelectorAll("[role=tab]");
     btns.forEach(element => {
-        if (element === evt.target) {
-            element.classList.remove("outline");
-            element.setAttribute("aria-selected", "true");
-        } else {
-            element.classList.add("outline");
-            element.setAttribute("aria-selected", "false");
-        }
+        let selected = element === evt.target;
+        element.classList.toggle("outline", !selected);
+        element.setAttribute("aria-selected", selected);
     });
 
     let tabPanels = app.querySelectorAll("[role=tabpanel]");
     tabPanels.forEach(element => {
-        if (element.id === controls) {
-            element.classList.remove("hide");
-        } else {
-            element.classList.add("hide");
-        }
+        element.classList.toggle("hide", element.id !== controls);
     });
     document.location.hash = "#tab-" + controls;
 }

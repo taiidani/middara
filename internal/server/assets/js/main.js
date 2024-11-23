@@ -1,4 +1,5 @@
 import { TabList } from "./tabs.js";
+import { Search } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", function (evt) {
     // Load the game screen's tab list
@@ -6,5 +7,11 @@ document.addEventListener("DOMContentLoaded", function (evt) {
     let tabList = document.querySelector("[role=tablist]");
     if (tabList) {
         TabList(tabList);
+    }
+
+    // Enable search filtering on the game screen
+    let search = document.querySelector("[role=search]");
+    if (search) {
+        Search(search);
     }
 });
