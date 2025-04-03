@@ -1,6 +1,7 @@
 package server
 
 import (
+	"context"
 	"embed"
 	"fmt"
 	"html/template"
@@ -9,10 +10,12 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/redis/go-redis/v9"
 	"github.com/taiidani/middara/internal/cache"
 )
 
 type Server struct {
+	ctx       context.Context
 	cache     cache.Cache
 	publicURL string
 	port      string
@@ -25,7 +28,7 @@ var templates embed.FS
 // DevMode can be toggled to pull rendered files from the filesystem or the embedded FS.
 var DevMode = os.Getenv("DEV") == "true"
 
-func NewServer(cache cache.Cache) *Server {
+func NewServer(ctx context.Context, redis *redis.Client) *Server {
 	mux := http.NewServeMux()
 
 	port := os.Getenv("PORT")
@@ -43,9 +46,10 @@ func NewServer(cache cache.Cache) *Server {
 			Addr:    fmt.Sprintf(":%s", port),
 			Handler: mux,
 		},
+		ctx:       ctx,
 		publicURL: publicURL,
 		port:      port,
-		cache:     cache,
+		cache:     cache.NewRedisCache(redis),
 	}
 	srv.addRoutes(mux)
 
@@ -55,7 +59,7 @@ func NewServer(cache cache.Cache) *Server {
 func (s *Server) addRoutes(mux *http.ServeMux) {
 	mux.Handle("GET /", http.HandlerFunc(s.indexHandler))
 	mux.Handle("GET /assets/", http.HandlerFunc(s.assetsHandler))
-	mux.Handle("GET /game/{id}", http.HandlerFunc(s.gameHandler))
+	mux.Handle("GET /game/{slug}", http.HandlerFunc(s.gameHandler))
 	mux.Handle("POST /game/{id}", http.HandlerFunc(s.saveGameHandler))
 	mux.Handle("POST /game", http.HandlerFunc(s.newGameHandler))
 }

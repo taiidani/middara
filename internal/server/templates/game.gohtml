@@ -11,6 +11,7 @@
 
     <section id="adventure-sheet" role="tabpanel">
         <form action="/game/{{.Game.ID}}" method="POST">
+            <input type="hidden" name="slug" value="{{.Game.Slug}}" />
             <div class="grid">
                 <div>
                     <article>
@@ -133,8 +134,9 @@
                         </fieldset>
                     </article>
 
-                    {{ range $i, $el := .Game.Players }}
+                    {{ range $i, $el := .Game.Characters }}
                     <article>
+                        <input type="hidden" name="id-{{$i}}" value="{{ .ID }}" />
                         {{ if .Name }}
                         <header>
                             <h3>{{ .Name }}</h3>

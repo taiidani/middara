@@ -1,4 +1,12 @@
 services:
   redis:
     image: redis:7
-    ports: [ "127.0.0.1:6379:6379" ]
+    ports: ["127.0.0.1:6379:6379"]
+
+  postgres:
+    image: postgres:16
+    ports: ["127.0.0.1:5432:5432"]
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "postgres"

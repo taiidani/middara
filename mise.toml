@@ -1,0 +1,32 @@
+[env]
+PORT = "3000"
+URL = "http://localhost:3000"
+DEV = "true"
+LOG_LEVEL = "info"
+
+REDIS_HOST = "localhost"
+REDIS_PORT = 6379
+
+DB_TYPE = "postgres"
+DATABASE_URL = "postgresql://postgres:root@127.0.0.1:5432/postgres"
+GOOSE_DRIVER = "postgres"
+GOOSE_DBSTRING = "postgresql://postgres:root@127.0.0.1:5432/postgres"
+GOOSE_MIGRATION_DIR = "./internal/db/migrations"
+
+[tools]
+go = "1.24.1"
+staticcheck = "latest"
+
+[tasks.build]
+description = "Build the server binary"
+env.CGO_ENABLED = "0"
+run = ["go build -o middara"]
+
+[tasks.run]
+description = "Execute the app in development mode"
+run = ["docker compose up -d --wait", "go run main.go"]
+
+# [tasks.seed]
+# description = "Populate the database with seeds"
+# env.GOOSE_MIGRATION_DIR = "./internal/db/seeds"
+# run = ["go tool goose --no-versioning up"]

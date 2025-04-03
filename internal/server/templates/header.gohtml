@@ -22,9 +22,11 @@
         <nav>
             <ul>
                 <li><a href="/"><img id="logo" src="/assets/logo.png" alt="Middara: Unintentional Malum" /></a></li>
+                {{ if .Game }}
                 {{ if .Game.ID }}
                 <li><a href="#act-1">Act 1</a></li>
-                {{ end}}
+                {{ end }}
+                {{ end }}
             </ul>
         </nav>
     </header>

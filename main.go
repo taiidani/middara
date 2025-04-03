@@ -7,10 +7,11 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
-	"strconv"
 	"time"
 
+	redis "github.com/redis/go-redis/v9"
 	"github.com/taiidani/middara/internal/cache"
+	"github.com/taiidani/middara/internal/models"
 	"github.com/taiidani/middara/internal/server"
 )
 
@@ -21,39 +22,21 @@ func main() {
 	slog.SetLogLoggerLevel(slog.LevelDebug)
 
 	// Set up the caching backend
-	cache, err := setupCache()
-	if err != nil {
-		log.Fatal("Unable to set up cache", "error", err)
+	rds := cache.NewClient(ctx)
+
+	// Set up the relational database
+	if err := models.InitDB(ctx); err != nil {
+		log.Fatalf("database init: %s", err)
 	}
 
 	// Serve until interrupted
-	if err := serve(ctx, cache); err != nil {
+	if err := serve(ctx, rds); err != nil {
 		log.Fatal(err)
 	}
 }
 
-func setupCache() (cache.Cache, error) {
-	if addr, ok := os.LookupEnv("REDIS_ADDR"); ok {
-		return cache.NewRedis(addr), nil
-	} else if host, ok := os.LookupEnv("REDIS_HOST"); ok {
-		db := 0
-		if dbParsed, err := strconv.ParseInt(os.Getenv("REDIS_DB"), 10, 64); err == nil {
-			db = int(dbParsed)
-		}
-
-		port := os.Getenv("REDIS_PORT")
-		user := os.Getenv("REDIS_USER")
-		pass := os.Getenv("REDIS_PASSWORD")
-
-		return cache.NewRedisSecureCache(host, port, user, pass, db), nil
-	}
-
-	slog.Warn("No REDIS_ADDR or REDIS_HOST env var set. Falling back upon in-memory store")
-	return cache.NewMemory(), nil
-}
-
-func serve(ctx context.Context, cache cache.Cache) error {
-	srv := server.NewServer(cache)
+func serve(ctx context.Context, rds *redis.Client) error {
+	srv := server.NewServer(ctx, rds)
 
 	go func() {
 		slog.Info("Server starting", "dev", server.DevMode)

@@ -4,18 +4,22 @@ import (
 	"fmt"
 	"log/slog"
 	"net/http"
+
+	"github.com/taiidani/middara/internal/models"
 )
 
-type errorBag struct {
-	Message error
-}
-
 var (
-	errGameIDRequired = fmt.Errorf("game ID is required")
-	errGameNotFound   = fmt.Errorf("game not found")
+	errGameIDRequired   = fmt.Errorf("game ID is required")
+	errInvalidGame      = fmt.Errorf("invalid game data")
+	errInvalidCharacter = fmt.Errorf("invalid character data")
 )
 
 func errorResponse(writer http.ResponseWriter, code int, err error) {
+	type errorBag struct {
+		Message error
+		Game    *models.Game
+	}
+
 	data := errorBag{
 		Message: err,
 	}
