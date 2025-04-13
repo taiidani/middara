@@ -17,14 +17,33 @@ GOOSE_MIGRATION_DIR = "./internal/db/migrations"
 go = "1.24.1"
 staticcheck = "latest"
 
+[tasks.default]
+depends = ["build"]
+env.CGO_ENABLED = "0"
+description = "Execute the app in development mode"
+run = ["docker compose up -d --wait", "./app"]
+
 [tasks.build]
 description = "Build the server binary"
+depends = ["dependencies", "test", "lint"]
 env.CGO_ENABLED = "0"
-run = ["go build -o middara"]
+run = ["go build -o ./app"]
 
-[tasks.run]
-description = "Execute the app in development mode"
-run = ["docker compose up -d --wait", "go run main.go"]
+[tasks.lint]
+depends = ["dependencies"]
+run = ["go vet ./...", "staticcheck ./..."]
+
+[tasks.dependencies]
+description = "Download static assets for building into the binary"
+run = ["go mod download"]
+
+[tasks.test]
+description = "Unit tests"
+depends = ["dependencies"]
+env.DEV = "false"
+env.CGO_ENABLED = 1                                    # Required for -race
+run = ["go test -race -covermode=atomic -cover ./..."]
+
 
 # [tasks.seed]
 # description = "Populate the database with seeds"

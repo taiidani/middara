@@ -8,22 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      CGO_ENABLED: "0"
     outputs:
       filename: ${{ steps.filename.outputs.filename }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
-          cache: true
-
-      - name: build
-        run: go build -o ./app
+      - uses: jdx/mise-action@v2
+      - run: mise run build
 
       - name: filename
         id: filename
