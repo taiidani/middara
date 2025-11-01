@@ -11,8 +11,8 @@ jobs:
     outputs:
       filename: ${{ steps.filename.outputs.filename }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
+      - uses: actions/checkout@v5
+      - uses: jdx/mise-action@v3
       - run: mise run build
 
       - name: filename
@@ -22,7 +22,7 @@ jobs:
       - name: package
         run: tar cvzf ./${{ steps.filename.outputs.filename }} app
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: "artifact"
           path: ./${{ steps.filename.outputs.filename }}
